@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Jquery demo using flickr rest api</title>
+<br><h2>	Welcome to Flicker public Photos display by tag name</h2></br>
+This page uses a flickr restapi to fetch flickr photos based on a tag name and displays.</br>
+	<meta charset="utf-8" />
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/jquery.zrssfeed.js"></script> 
+    <script>
+        $(function () {
+            //ajax call using flickr's restful service to get json. this is using jsonp
+            //$.getajax(
+            $.getJSON(
+                'http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?',
+               {
+                   tags: "birds",
+                   tagmode: "any",
+                   format: "json"
+               }).done(function (data){
+                   for(pic of  data.items){
+                       //console.log(pic);
+                       $('<img></img>').attr('src',pic.media.m).appendTo(document.body);}
+        });
+        });
+    </script>
+</head>
+<body>  
+</body>
+</html>

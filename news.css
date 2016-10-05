@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.hidden {
+display:none;
+}
+
+.rssFeed li {
+    list-style-type:none;
+    background-color: aqua;
+    cursor:pointer;
+}
+
+.rssFeed li:hover {
+    background-color: aquamarine;
+    }
